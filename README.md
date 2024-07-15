@@ -1,6 +1,6 @@
 # calendarioMP-progweb
 
-Este é um projeto web de calendário desenvolvido com Django e FullCalendar. O objetivo é criar uma aplicação que permita aos usuários adicionar, editar, visualizar e gerenciar eventos de maneira eficiente e intuitiva.
+Este é um projeto web de calendário desenvolvido com Spring Boot e FullCalendar. O objetivo é criar uma aplicação que permita aos usuários adicionar, editar, visualizar e gerenciar eventos de maneira eficiente e intuitiva.
 
 ## Funcionalidades
 
@@ -13,10 +13,11 @@ Este é um projeto web de calendário desenvolvido com Django e FullCalendar. O 
 
 ## Tecnologias Utilizadas
 
-- **Django**: Framework web utilizado para o backend da aplicação.
+- **Spring Boot**: Framework utilizado para o backend da aplicação.
 - **FullCalendar**: Biblioteca JavaScript para a exibição e manipulação de calendários.
 - **HTML/CSS**: Estrutura e estilização das páginas.
 - **JavaScript**: Interatividade do frontend.
+- **Thymeleaf**: Template engine para renderização das páginas no servidor.
 
 ## Instalação
 
@@ -25,4 +26,12 @@ Siga os passos abaixo para configurar o projeto localmente:
 1. **Clone o repositório:**
    ```bash
    git clone https://github.com/seu-usuario/calendar-project.git
-   cd calendar-project
+   cd calendarioMP-progweb
+
+2. **Compile e execute a aplicação:**
+    ```bash
+    ./mvnw spring-boot:run
+
+
+## Uso
+Após iniciar o servidor, você poderá acessar a aplicação de calendário através do navegador. Utilize as funcionalidades de adicionar, editar e visualizar eventos conforme necessário.
