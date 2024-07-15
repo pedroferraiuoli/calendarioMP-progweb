@@ -17,7 +17,6 @@ Este é um projeto web de calendário desenvolvido com Spring Boot e FullCalenda
 - **FullCalendar**: Biblioteca JavaScript para a exibição e manipulação de calendários.
 - **HTML/CSS**: Estrutura e estilização das páginas.
 - **JavaScript**: Interatividade do frontend.
-- **Thymeleaf**: Template engine para renderização das páginas no servidor.
 
 ## Instalação
 
