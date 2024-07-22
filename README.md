@@ -20,7 +20,7 @@ Este é um projeto web de calendário desenvolvido com Spring Boot e FullCalenda
 
 ## Instalação
 
-Siga os passos abaixo para configurar o projeto localmente:
+Siga os passos para configurar o projeto localmente:
 
 1. **Clone o repositório:**
    ```bash
