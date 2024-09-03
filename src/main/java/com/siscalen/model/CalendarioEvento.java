@@ -34,7 +34,7 @@ public class CalendarioEvento {
 
     @ManyToOne
     @JoinColumn(name = "responsavel_evento", nullable = true)
-    private User responsavelEvento;
+    private Usuario responsavelEvento;
 
     @Column(nullable = false)
     private Boolean concluido = false;
@@ -83,11 +83,11 @@ public class CalendarioEvento {
         this.dataLimite = dataLimite;
     }
 
-    public User getResponsavelEvento() {
+    public Usuario getResponsavelEvento() {
         return responsavelEvento;
     }
 
-    public void setResponsavelEvento(User responsavelEvento) {
+    public void setResponsavelEvento(C responsavelEvento) {
         this.responsavelEvento = responsavelEvento;
     }
 
