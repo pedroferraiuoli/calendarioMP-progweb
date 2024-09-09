@@ -1,13 +1,13 @@
 package com.siscalen.model;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
 public class Admin extends Usuario {
-    
+
     private String nivelAcesso;
 
-    // Getters e Setters
+
     public String getNivelAcesso() {
         return nivelAcesso;
     }
@@ -16,4 +16,3 @@ public class Admin extends Usuario {
         this.nivelAcesso = nivelAcesso;
     }
 }
-
