@@ -2,7 +2,7 @@ com/siscalen/model/CalendarioEvento.class
 com/siscalen/model/Admin.class
 com/siscalen/repository/CalendarioEventoRepository.class
 com/siscalen/repository/AdminRepository.class
-com/siscalen/repository/UsuarioRepository.class
-com/siscalen/CalendarioApplication.class
 com/siscalen/CalendarioApplicationTests.class
 com/siscalen/model/Usuario.class
+com/siscalen/repository/UsuarioRepository.class
+com/siscalen/CalendarioApplication.class

@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.siscalen.service.CalendarioEventoServiceTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.126 s <<< FAILURE! - in com.siscalen.service.CalendarioEventoServiceTest
+com.siscalen.service.CalendarioEventoServiceTest.testFindAllFail  Time elapsed: 0.006 s  <<< FAILURE!
+org.opentest4j.AssertionFailedError: A lista de eventos não deve estar vazia ==> expected: <false> but was: <true>
+	at com.siscalen.service.CalendarioEventoServiceTest.testFindAllFail(CalendarioEventoServiceTest.java:90)
+

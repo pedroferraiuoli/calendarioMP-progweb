@@ -1,6 +1,8 @@
 package com.siscalen.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
@@ -10,7 +12,11 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Nome não pode ser vazio")
     private String nome;
+
+    @NotBlank(message = "Email não pode ser vazio")
+    @Email(message = "Email deve ser válido")
     private String email;
 
     public Long getId() {
