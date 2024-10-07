@@ -1,4 +1,4 @@
-// package com.siscalen.RepresentationModel;
+package com.siscalen.RepresentationModel;
 
 import com.siscalen.model.Admin;
 import org.springframework.hateoas.RepresentationModel;

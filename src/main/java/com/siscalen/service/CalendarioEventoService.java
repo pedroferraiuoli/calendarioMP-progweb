@@ -29,4 +29,8 @@ public class CalendarioEventoService {
     public void deleteById(Long id) {
         calendarioEventoRepository.deleteById(id);
     }
+
+    public List<CalendarioEvento> findEventosNaoConcluidos() {
+        return calendarioEventoRepository.findByConcluidoFalse();
+    }
 }

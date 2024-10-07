@@ -14,6 +14,7 @@ public class CalendarioEventoModel extends RepresentationModel<CalendarioEventoM
     private Boolean concluido;
     private LocalDate dataConclusao;
     private String observacao;
+    private String recorrencia;
 
     public CalendarioEventoModel(CalendarioEvento calendarioEvento) {
         this.id = calendarioEvento.getId();

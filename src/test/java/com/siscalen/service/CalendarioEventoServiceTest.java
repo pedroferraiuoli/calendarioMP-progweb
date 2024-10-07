@@ -78,14 +78,5 @@ class CalendarioEventoServiceTest {
         verify(calendarioEventoRepository, times(1)).deleteById(1L);
     }
 
-    @Test
-    void testFindAllFail() {
-        when(calendarioEventoRepository.findAll()).thenReturn(Arrays.asList());
-
-        List<CalendarioEvento> eventos = calendarioEventoService.findAll();
-
-        assertFalse(eventos.isEmpty(), "A lista de eventos não deve estar vazia");
-
-        verify(calendarioEventoRepository, times(1)).findAll();
-    }
+    
 }

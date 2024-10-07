@@ -17,4 +17,8 @@ public interface CalendarioEventoRepository extends JpaRepository<CalendarioEven
 
     @Query("SELECT c FROM CalendarioEvento c WHERE c.responsavelEvento = :usuario")
     List<CalendarioEvento> findByResponsavel(Usuario usuario);
+
+    List<CalendarioEvento> findByConcluidoFalse();
+    
+
 }

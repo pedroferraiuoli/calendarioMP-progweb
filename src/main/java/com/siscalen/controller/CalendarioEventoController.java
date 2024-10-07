@@ -64,8 +64,13 @@ public class CalendarioEventoController {
             content = { @Content(mediaType = "application/json", schema = @Schema(implementation = CalendarioEvento.class)) })
     })
     @PostMapping
-    public CalendarioEvento createEvento(@RequestBody CalendarioEvento evento) {
-        return calendarioEventoService.save(evento);
+    public ResponseEntity<EntityModel<CalendarioEvento>> createEvento(@RequestBody CalendarioEvento evento) {
+        CalendarioEvento novoEvento = calendarioEventoService.save(evento);
+        EntityModel<CalendarioEvento> resource = EntityModel.of(novoEvento);
+        WebMvcLinkBuilder linkToSelf = linkTo(methodOn(this.getClass()).getEventoById(novoEvento.getId()));
+        resource.add(linkToSelf.withSelfRel());
+
+        return ResponseEntity.created(linkToSelf.toUri()).body(resource);
     }
 
     @Operation(summary = "Atualizar evento por ID")
@@ -97,5 +102,16 @@ public class CalendarioEventoController {
         } else {
             return ResponseEntity.notFound().build();
         }
+    }
+
+    @Operation(summary = "Buscar eventos não concluídos")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Eventos não concluídos encontrados",
+            content = { @Content(mediaType = "application/json", schema = @Schema(implementation = CalendarioEvento.class)) })
+    })
+    @GetMapping("/nao-concluidos")
+    public ResponseEntity<List<CalendarioEvento>> getEventosNaoConcluidos() {
+        List<CalendarioEvento> eventos = calendarioEventoService.findEventosNaoConcluidos();
+        return ResponseEntity.ok(eventos);
     }
 }
