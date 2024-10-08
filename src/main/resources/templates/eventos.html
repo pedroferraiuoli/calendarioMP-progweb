@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Lista de Eventos</h1>
+        
+        <table class="table table-bordered mt-4">
+            <thead>
+                <tr>
+                    <th>Título</th>
+                    <th>Data Limite</th>
+                    <th>Responsável</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+        
+                <tr th:each="evento : ${eventos}">
+                    <td th:text="${evento.titulo}">Título do Evento</td>
+                    <td th:text="${#dates.format(evento.dataLimite, 'dd/MM/yyyy')}">Data Limite</td>
+                    <td th:text="${evento.responsavelEvento.username}">Responsável</td>
+                    <td>
+                        <a th:href="@{/eventos/{id}(id=${evento.id})}" class="btn btn-info">Detalhes</a>
+                        <a th:href="@{/eventos/{id}/concluir(id=${evento.id})}" class="btn btn-success">Concluir</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">Criar Novo Evento</h2>
+        <form action="#" th:action="@{/eventos}" th:object="${novoEvento}" method="post">
+            <div class="form-group">
+                <label for="titulo">Título:</label>
+                <input type="text" id="titulo" class="form-control" th:field="*{titulo}" required>
+            </div>
+            <div class="form-group">
+                <label for="dataLimite">Data Limite:</label>
+                <input type="date" id="dataLimite" class="form-control" th:field="*{dataLimite}" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Criar Evento</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
