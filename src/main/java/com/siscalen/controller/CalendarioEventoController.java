@@ -34,7 +34,7 @@ public class CalendarioEventoController {
     public String listarEventos(Model model) {
         List<CalendarioEvento> eventos = calendarioEventoService.findAll();
         model.addAttribute("eventos", eventos);
-        return "listar"; // Template para listar eventos
+        return "listar";
     }
 
     @Operation(summary = "Exibir formulário de criação de evento", description = "Retorna um formulário para a criação de um novo evento.")
@@ -66,7 +66,7 @@ public class CalendarioEventoController {
         CalendarioEvento evento = calendarioEventoService.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Evento inválido: " + id));
         model.addAttribute("evento", evento);
-        return "editar"; // Template para editar evento
+        return "editar";
     }
 
     @Operation(summary = "Atualizar um evento existente", description = "Atualiza os dados de um evento existente.")
@@ -79,7 +79,7 @@ public class CalendarioEventoController {
     public String atualizarEvento(@PathVariable Long id, @ModelAttribute CalendarioEvento evento) {
         evento.setId(id);
         calendarioEventoService.save(evento);
-        return "redirect:/eventos"; // Redireciona para a lista de eventos
+        return "redirect:/eventos";
     }
 
     @Operation(summary = "Deletar um evento por ID", description = "Remove um evento da lista pelo seu ID.")
@@ -90,6 +90,6 @@ public class CalendarioEventoController {
     @GetMapping("/deletar/{id}")
     public String deletarEvento(@PathVariable Long id) {
         calendarioEventoService.deleteById(id);
-        return "redirect:/eventos"; // Redireciona para a lista de eventos
+        return "redirect:/eventos";
     }
 }
