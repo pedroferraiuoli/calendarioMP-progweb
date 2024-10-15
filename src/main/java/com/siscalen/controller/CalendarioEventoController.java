@@ -41,7 +41,7 @@ public class CalendarioEventoController {
     @GetMapping("/criar")
     public String exibirFormularioCriarEvento(Model model) {
         model.addAttribute("evento", new CalendarioEvento());
-        return "criar"; // Template para criar evento
+        return "criar";
     }
 
     @Operation(summary = "Criar um novo evento", description = "Cadastra um novo evento na lista.")
@@ -52,7 +52,7 @@ public class CalendarioEventoController {
     @PostMapping
     public String criarEvento(@ModelAttribute CalendarioEvento evento) {
         calendarioEventoService.save(evento);
-        return "redirect:/eventos"; // Redireciona para a lista de eventos
+        return "redirect:/eventos";
     }
 
     @Operation(summary = "Exibir formulário de edição de evento", description = "Retorna um formulário para a edição de um evento existente.")

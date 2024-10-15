@@ -33,10 +33,10 @@ public class CalendarioEvento {
     @Column(nullable = false)
     private Boolean concluido = false;
 
-    @Column(name = "data_conclusao")
+    @Column(name = "data_conclusao", nullable = true)
     private LocalDate dataConclusao;
 
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT", nullable = true)
     private String observacao;
 
     @Column
