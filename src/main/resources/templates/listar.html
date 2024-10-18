@@ -24,7 +24,7 @@
                 <tr th:each="evento : ${eventos}">
                     <td th:text="${evento.id}">ID</td>
                     <td th:text="${evento.titulo}">Título</td>
-                    <td th:text="${#dates.format(evento.dataLimite, 'dd/MM/yyyy')}">Data Limite</td>
+                    <td th:text="${evento.dataLimite}">Data Limite</td>
                     <td>
                         <a th:href="@{/eventos/editar/{id}(id=${evento.id})}" class="btn btn-info">Editar</a>
                         <a th:href="@{/eventos/deletar/{id}(id=${evento.id})}" class="btn btn-danger">Deletar</a>

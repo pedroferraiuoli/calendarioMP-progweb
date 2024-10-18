@@ -50,9 +50,16 @@ public class CalendarioEventoController {
             content = { @Content(mediaType = "application/json", schema = @Schema(implementation = CalendarioEvento.class)) })
     })
     @PostMapping
-    public String criarEvento(@ModelAttribute CalendarioEvento evento) {
-        calendarioEventoService.save(evento);
-        return "redirect:/eventos";
+    public String criarEvento(@ModelAttribute CalendarioEvento evento, Model model) {
+        try {
+            calendarioEventoService.save(evento);
+            return "redirect:/eventos";
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            model.addAttribute("errorMessage", "Ocorreu um erro ao criar o evento: " + e.getMessage());
+            e.printStackTrace();
+            return "error";   
+        }
     }
 
     @Operation(summary = "Exibir formulário de edição de evento", description = "Retorna um formulário para a edição de um evento existente.")
