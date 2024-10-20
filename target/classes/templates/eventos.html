@@ -23,6 +23,7 @@
         
                 <tr th:each="evento : ${eventos}">
                     <td th:text="${evento.titulo}">Título do Evento</td>
+                    <td th:text="${evento.descricao}">Descrição de Evento</td>
                     <td th:text="${#dates.format(evento.dataLimite, 'dd/MM/yyyy')}">Data Limite</td>
                     <td th:text="${evento.responsavelEvento.username}">Responsável</td>
                     <td>
