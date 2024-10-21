@@ -46,3 +46,8 @@ h1 {
     background-color: #0056b3;
     border-color: #004085;
 }
+
+#calendar {
+    width: 88%;
+    margin: 0 auto;
+}

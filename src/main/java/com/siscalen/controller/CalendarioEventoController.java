@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 
@@ -101,6 +104,23 @@ public class CalendarioEventoController {
     public String deletarEvento(@PathVariable Long id) {
         calendarioEventoService.deleteById(id);
         return "redirect:/eventos";
+    }
+
+    @GetMapping("/calendario")
+    @ResponseBody
+    public List<Map<String, Object>> listarEventosParaCalendario() {
+        List<CalendarioEvento> eventos = calendarioEventoService.findAll();
+        
+        List<Map<String, Object>> eventosParaCalendario = new ArrayList<>();
+        
+        for (CalendarioEvento evento : eventos) {
+            Map<String, Object> eventoMap = new HashMap<>();
+            eventoMap.put("title", evento.getTitulo());
+            eventoMap.put("start", evento.getDataLimite().toString());
+            eventosParaCalendario.add(eventoMap);
+        }
+        
+        return eventosParaCalendario;
     }
 
 }
