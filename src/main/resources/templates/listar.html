@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listar Eventos</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <div class="container">
@@ -16,7 +17,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Título</th>
+                    <th>Descrição</th>
                     <th>Data Limite</th>
+                    <th>Concluido</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -24,7 +27,9 @@
                 <tr th:each="evento : ${eventos}">
                     <td th:text="${evento.id}">ID</td>
                     <td th:text="${evento.titulo}">Título</td>
+                    <td th:text="${evento.descricao}">Descrição</td>
                     <td th:text="${evento.dataLimite}">Data Limite</td>
+                    <td th:text="${evento.concluido ? 'Sim' : 'Não'}">Concluido</td>
                     <td>
                         <a th:href="@{/eventos/editar/{id}(id=${evento.id})}" class="btn btn-info">Editar</a>
                         <a th:href="@{/eventos/deletar/{id}(id=${evento.id})}" class="btn btn-danger">Deletar</a>

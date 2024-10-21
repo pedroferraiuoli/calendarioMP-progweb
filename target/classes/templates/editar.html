@@ -16,8 +16,17 @@
                 <input type="text" id="titulo" class="form-control" th:field="*{titulo}" required>
             </div>
             <div class="form-group">
+                <label for="titulo">Descrição:</label>
+                <input type="text" id="titulo" class="form-control" th:field="*{descricao}" required>
+            </div>
+            <div class="form-group">
                 <label for="dataLimite">Data Limite:</label>
-                <input type="date" id="dataLimite" class="form-control" th:field="*{dataLimite}" required>
+                <input type="text" id="dataLimite" class="form-control" th:field="*{dataLimite}" value="${#dates.format(evento.dataLimite, 'yyyy-MM-dd')}" required>
+                <div th:if="${#fields.hasErrors('dataLimite')}" class="text-danger" th:errors="*{dataLimite}"></div>
+            </div>
+            <div class="form-group">
+                <label for="dataLimite">Concluido:</label>
+                <input type="checkbox" id="dataLimite" class="form-control" th:field="*{concluido}">
             </div>
             <button type="submit" class="btn btn-primary">Atualizar Evento</button>
             <a href="/eventos" class="btn btn-secondary">Voltar</a>
